@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import FavoriteButton from "./FavoriteButton";
 
 const CardContainer = styled.section`
   width: 150px;
@@ -21,7 +22,10 @@ export const Card = ({ pokemon }) => {
   return (
     <CardContainer onClick={() => navigate(`/detail/${pokemon.id}`)}>
       <img src={pokemon.front}></img>
-      <div>{pokemon.name}</div>
+      <div>
+        {pokemon.name}
+        <FavoriteButton pokemonId={pokemon.id} />
+      </div>
     </CardContainer>
   );
 };
